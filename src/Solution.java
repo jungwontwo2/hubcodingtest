@@ -6,16 +6,15 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 class Solution {
-    public void solution(List<Map<String, Integer>> arr) {
+    public String solution(List<Map<String, Integer>> arr) {
 
         Map<Integer, Integer> scoreMap = new HashMap<>();
         
         for (Map<String, Integer> item : arr) {
             int answer = item.get("answer");
             int score = item.get("score");
-            scoreMap.put(answer, Math.max(scoreMap.getOrDefault(answer, 0), score));
+            scoreMap.put(answer, score);
         }
-
         int maxScore = Collections.max(scoreMap.values());
 
         List<String> winners = new ArrayList<>();
@@ -31,11 +30,9 @@ class Solution {
             }
         }
 
-        String result = winners.stream()
+        return winners.stream()
                 .map(w -> w + " : " + maxScore)
                 .collect(Collectors.joining(", "));
-
-        System.out.println(result);
     }
 
 }

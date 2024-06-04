@@ -6,28 +6,18 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         Solution solution = new Solution();
-
         List<Map<String, Integer>> list = new ArrayList<>();
+        list.add(new HashMap<>() {{ put("answer", 1); put("score", 5); }});
+        list.add(new HashMap<>() {{ put("answer", 3); put("score", 3); }});
+        list.add(new HashMap<>() {{ put("answer", 2); put("score", 4); }});
+        String answer = solution.solution(list);
+        System.out.println("answer = " + answer);
 
-        // 첫 번째 맵 생성 및 추가
-        Map<String, Integer> map1 = new HashMap<>();
-        map1.put("answer", 1);
-        map1.put("score", 5);
-        list.add(map1);
-
-        // 두 번째 맵 생성 및 추가
-        Map<String, Integer> map2 = new HashMap<>();
-        map2.put("answer", 5);
-        map2.put("score", 5);
-        list.add(map2);
-
-        // 세 번째 맵 생성 및 추가
-        Map<String, Integer> map3 = new HashMap<>();
-        map3.put("answer", 2);
-        map3.put("score", 4);
-        list.add(map3);
-
-        // 리스트 출력
-        solution.solution(list);
+        List<Map<String, Integer>> list2 = new ArrayList<>();
+        list2.add(new HashMap<>() {{ put("answer", 1); put("score", 5); }});
+        list2.add(new HashMap<>() {{ put("answer", 5); put("score", 5); }});
+        list2.add(new HashMap<>() {{ put("answer", 2); put("score", 4); }});
+        String answer2 = solution.solution(list2);
+        System.out.println("answer2 = " + answer2);
     }
 }
